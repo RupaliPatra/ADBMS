@@ -19,7 +19,7 @@ db.collection.find({ age: { $gt: 25, $lt: 40 } });
 
 
 //Type-Specific Queries:
-- Null: To find documents where a field is null, you can use the `$type` operator with value 10. 
+//Null: To find documents where a field is null, you can use the `$type` operator with value 10. 
 db.collection.find({ field: { $type: 10 } });
 
 
