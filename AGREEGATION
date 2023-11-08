@@ -1,0 +1,24 @@
+db.createCollection('students')
+
+db.students.insertMany([
+  { age: 18, grade: 12 },
+  { age: 17, grade: 11 },
+  { age: 16, grade: 10 },
+  { age: 15, grade: 9 }
+])
+
+db.students.aggregate([
+  { $group: { _id: "$grade", averageAge: { $avg: "$age" } } }
+])
+// This query uses the `$group` stage to group the documents by the "grade" field and calculate the average age using the `$avg` operator
+
+
+db.students.createIndex({ grade: 1 }) 
+ // To create an index on the "grade" field in the "students" collection, you can use the `createIndex` method.creates an ascending index on the "grade" field.
+
+
+db.stud.getIndexes() 
+
+
+
+
