@@ -1,0 +1,29 @@
+
+db.createCollection('student');
+
+db.students.insertMany([
+   { name: "John", age: 25 },
+   { name: "Emma", age: 30 },
+   { name: "Michael", age: 40 }
+]); //batch insert
+
+db.student.deleteOne({ name: "John" }); //remove a document
+
+db.student.replaceOne({ name: "John" }, { name: "Johnny", age: 26 }); // update a document
+
+db.student.updateOne({ name: "John" }, { $set: { age: 27 } }); //using modifiers
+
+
+db.student.updateOne({ name: "John" }, { $set: { age: 28 } }, { upsert: true }); //Upsert (Insert if not found, Update if found)
+
+db.student.updateMany({ age: { $gte: 30 } }, { $inc: { age: 1 } }); //Updating Multiple Documents
+
+
+db.collection.findOneAndUpdate(
+   { name: "John" },
+   { $set: { age: 29 } },
+   { returnNewDocument: true }
+);//Returning Updated Documents:
+
+
+
