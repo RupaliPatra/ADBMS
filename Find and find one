@@ -1,0 +1,41 @@
+db.createcollection(users)
+db.users.insertMany([ { name: "John", age: 25, city: "Pune"  }, {}])
+
+// Find all documents in a collection:
+db.collection.find();
+
+
+// Find documents that match a specific condition:
+db.collection.find({ age: 25 });
+
+
+// Find documents that match multiple conditions:
+db.collection.find({ name: "John", age: { $gte: 30 } });
+
+
+// Find documents within a specific range:
+db.collection.find({ age: { $gte: 25, $lte: 40 } });
+
+
+// Find documents with a specific value in an array field:
+db.collection.find({ tags: "mongodb" });
+
+
+// Find documents that match a specific value in a nested field:
+db.collection.find({ "address.city": "Pune" });
+
+
+// Find only one document that matches a specific condition:
+db.collection.findOne({ name: "John" });
+
+
+//Find the first document in a collection:
+db.collection.findOne();
+
+
+// Find a document with a specific value in an array field:
+db.collection.findOne({ tags: "mongodb" });
+
+
+// Find a document with multiple conditions:
+db.collection.findOne({ name: "John", age: { $gte: 30 } });
