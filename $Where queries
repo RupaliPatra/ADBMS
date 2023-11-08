@@ -1,0 +1,44 @@
+db.createcollection('students')
+
+//Retrieve all documents where the "age" field is greater than 20:
+db.students.find({ $where: "this.age > 20" });
+
+
+//Retrieve all documents where the length of the "name" field is less than 5 characters:
+db.students.find({ $where: "this.name.length < 5" });
+
+
+//Retrieve all documents where the "grade" field is equal to "A+":
+db.students.find({ $where: "this.grade === 'A+'" });
+
+
+//Retrieve all documents where the "marks" array has at least one element greater than 90:
+db.students.find({ $where: "this.marks.some(mark => mark > 90)" });
+
+
+//Retrieve all documents where the "hobbies" array contains the word "football":
+db.students.find({ $where: "/football/.test(this.hobbies)" });
+
+
+//Retrieve all documents where the "attendance" field is less than 75:
+db.students.find({ $where: "this.attendance < 75" });
+
+
+//Retrieve all documents where the "city" field is either "Mumbai" or "Delhi":
+db.students.find({ $where: '["Mumbai", "Delhi"].includes(this.city)' });
+
+
+//Retrieve all documents where the "GPA" field is between 3.5 and 4.0:
+db.students.find({ $where: "this.GPA >= 3.5 && this.GPA <= 4.0" });
+
+
+//Retrieve all documents where the "age" field is not equal to the "year" field:
+db.students.find({ $where: "this.age !== this.year" });
+
+
+//Retrieve all documents where the "subjects" array contains at least one element starting with the letter "C":
+db.students.find({ $where: "this.subjects.some(subject => subject.startsWith('C'))" });
+
+
+
+
