@@ -1,21 +1,30 @@
-db.createCollection('posts')
+db.createCollection('stud')
 
+db.stud.insertOne( 
+{"id":1, "sec":"A", "marks":80}); 
 
-db.posts.insertMany({
-   "post_text": "tutorialspoint is an awesome website for tutorials",
-   "user_name": "mark",
-   "status":"active"
-});
+db.stud.insertOne( 
+{"id":2, "sec":"A", "marks":90});  
 
+db.stud.insertOne( 
+{"id":3, "sec":"B", "marks":99});
 
-db.posts.mapReduce( 
-   function() { emit(this.user_id,1); }, 
-	
-   function(key, values) {return Array.sum(values)}, {  
-      query:{status:"active"},  
-      out:"post_total" 
-   }
-)
+db.stud.insertOne( 
+{"id":1, "sec":"B", "marks":95}); 
+
+db.stud.insertOne( 
+{"id":1, "sec":"C", "marks":90});
+
+db.stud.find();
+
+var map=function(){ emit(this.sec,this.marks)};
+
+var reduce=function(sec,marks){ return Array.sum(marks);}; 
+
+db.stud.mapReduce(map,reduce,{out :"resultCollection2"});
+
+db.resultCollection2.find()
+
 
 
 
