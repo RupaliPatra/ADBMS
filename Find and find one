@@ -1,41 +1,61 @@
-db.createcollection(users)
-db.users.insertMany([ { name: "John", age: 25, city: "Pune"  }, {}])
+db.createCollection("students")
 
-// Find all documents in a collection:
-db.collection.find();
+db.students.insertMany([{
+  name: "Alice",
+  age: 20,
+  city: "Mumbai",
+  field: "Computer Science",
+  gpa: 3.7
+},
+{
+  name: "Bob",
+  age: 22,
+  city: "Pune",
+  field: "Electrical Engineering",
+  gpa: 3.9
+},
+{
+  name: "Charlie",
+  age: 21,
+  city: "Bangalore",
+  field: "Mechanical Engineering",
+  gpa: 3.6
+},
+{
+  name: "Dave",
+  age: 20,
+  city: "Mumbai",
+  field: "Computer Science",
+  gpa: 3.2
+}])
 
+//Find all students in the database:
+db.students.find()
 
-// Find documents that match a specific condition:
-db.collection.find({ age: 25 });
+//Find a student with the name "Alice":
+db.students.findOne({ name: "Alice" })
 
+//Find all students who are 20 years old:
+db.students.find({ age: 20 })
 
-// Find documents that match multiple conditions:
-db.collection.find({ name: "John", age: { $gte: 30 } });
+//Find all students who live in Mumbai:
+db.students.find({ city: "Mumbai" })
 
+//Find the oldest student in the database:
+db.students.find().sort({ age: -1 }).limit(1)
 
-// Find documents within a specific range:
-db.collection.find({ age: { $gte: 25, $lte: 40 } });
+//Find all students sorted by their age in ascending order:
+db.students.find().sort({ age: 1 })
 
+//Find all students who are either from Pune or Bangalore:
+db.students.find({ $or: [{ city: "Pune" }, { city: "Bangalore" }] })
 
-// Find documents with a specific value in an array field:
-db.collection.find({ tags: "mongodb" });
+//Find all students whose age is greater than 22:
+db.students.find({ age: { $gt: 22 } })
 
+//Find all students who are studying computer science:
+db.students.find({ field: "Computer Science" })
 
-// Find documents that match a specific value in a nested field:
-db.collection.find({ "address.city": "Pune" });
+//Find all students who have a GPA higher than 3.5:
+db.students.find({ gpa: { $gt: 3.5 } })
 
-
-// Find only one document that matches a specific condition:
-db.collection.findOne({ name: "John" });
-
-
-//Find the first document in a collection:
-db.collection.findOne();
-
-
-// Find a document with a specific value in an array field:
-db.collection.findOne({ tags: "mongodb" });
-
-
-// Find a document with multiple conditions:
-db.collection.findOne({ name: "John", age: { $gte: 30 } });
