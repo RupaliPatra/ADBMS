@@ -1,5 +1,26 @@
 db.createcollection('students')
 
+db.students.insertMany([
+  {
+    name: "John",
+    age: 20,
+    marks: [80, 85, 90],
+    grade: "A",
+    hobbies: ["reading", "painting"],
+    attendance: 90,
+    GPA: 3.8
+  },
+  {
+    name: "Emma",
+    age: 21,
+    marks: [95, 92, 98],
+    grade: "A+",
+    hobbies: ["singing", "dancing"],
+    attendance: 95,
+    GPA: 4.0
+  },
+])
+
 //Retrieve all documents where the "age" field is greater than 20:
 db.students.find({ $where: "this.age > 20" });
 
