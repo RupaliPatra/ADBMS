@@ -60,6 +60,12 @@ db.students.find({ $where: "this.age !== this.year" });
 //Retrieve all documents where the "subjects" array contains at least one element starting with the letter "C":
 db.students.find({ $where: "this.subjects.some(subject => subject.startsWith('C'))" });
 
-
+- In MongoDB, the "where" query is performed using the `find()` method.
+- The "where" query allows you to specify conditions to filter the data in a collection.
+- You can use a query object as a parameter to the `find()` method to define the conditions.
+- The query object consists of key-value pairs, where the key represents the field you want to query and the value represents the condition.
+- Different comparison operators, such as `$eq`, `$ne`, `$gt`, `$lt`, `$gte`, `$lte`, can be used to define the conditions.
+- Logical operators like `$and`, `$or`, and `$not` can be used to combine multiple conditions.
+- The "where" query in MongoDB is flexible and powerful, enabling you to retrieve specific data based on your defined conditions.
 
 
