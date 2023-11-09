@@ -59,3 +59,8 @@ db.students.find({ field: "Computer Science" })
 //Find all students who have a GPA higher than 3.5:
 db.students.find({ gpa: { $gt: 3.5 } })
 
+find()` Method:
+The `find()` method in MongoDB allows you to query a collection for documents that match certain criteria. It returns a cursor, which is like a pointer to the result set. You can then iterate over the cursor to access the matching documents. This method is useful when you want to retrieve multiple documents that meet your conditions.
+
+`findOne()` Method:
+On the other hand, the `findOne()` method in MongoDB is used to query a collection and retrieve a single document that matches the specified criteria. It returns the first document that satisfies the conditions. This method is handy when you only need one specific document that meets your criteria.
