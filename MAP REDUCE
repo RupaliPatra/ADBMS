@@ -25,6 +25,23 @@ db.stud.mapReduce(map,reduce,{out :"resultCollection2"});
 
 db.resultCollection2.find()
 
+var map = function() {emit(this.name,this.marks);}; //MAP FUNCTION
+var reduce = function(name,marks) {return Array.sum(marks);};  //REDUCE FUNCTION
+//MAP REDUCE FUNCTION 
+b.students.mapReduce(
+   map,
+   reduce,
+   {  out: "totals" }
+);
 
+map() function: It uses emit() function in which it takes two parameters key and value key. Here the key is on which we make groups like groups by in MySQL. Example like group by ages or names and the second parameter is on which aggregation is performed like avg(), sum() is calculated on.
+reduce() function: It is the step in which we perform our aggregate function  like avg(), sum().
+query: Here we will pass the query to filter the resultset.
+output: In this, we will specify the collection name where the result will be stored.
+
+Map-reduce is like having a team of mappers and reducers working together to analyze and process your data. Here's how it works:
+
+- Map: The mapper takes your data and transforms it into key-value pairs.
+- Reduce: The reducer groups the key-value pairs and applies a function to summarize or aggregate the data.
 
 
