@@ -32,3 +32,11 @@ db.collection.find({ tags: { $in: ["mongodb", "nosql"] } });
 
 
 
+query criteria are used to specify conditions for filtering data in a collection. You can use various operators and expressions to define the criteria. Here are some commonly used query criteria in MongoDB:
+
+- Equality: `{ field: value }` matches documents where the field is equal to the specified value.
+- Comparison: `{ field: { $gt: value } }` matches documents where the field is greater than the specified value.
+- Logical: `{ $and: [ { condition1 }, { condition2 } ] }` matches documents that satisfy both conditions.
+- Inclusion: `{ field: { $in: [ value1, value2 ] } }` matches documents where the field value is equal to any of the specified values.
+- Regular Expression: `{ field: /pattern/ }` matches documents where the field matches the specified regular expression pattern.
+
