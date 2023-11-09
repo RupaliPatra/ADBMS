@@ -20,5 +20,12 @@ db.students.createIndex({ grade: 1 })
 db.stud.getIndexes() 
 
 
+Aggregation operations process multiple documents and return computed results. You can use aggregation operations to:
+Group values from multiple documents together.
+Perform operations on the grouped data to return a single result.
+Analyze data changes over time.
 
-
+Indexing in MongoDB : 
+MongoDB uses indexing in order to make the query processing more efficient. If there is no indexing, then the MongoDB must scan every document in the collection and retrieve only those documents that match the query.
+db.COLLECTION_NAME.createIndex({KEY:1}) 
+The key determines the field on the basis of which you want to create an index and 1 (or -1) determines the order in which these indexes will be arranged(ascending or descending).
